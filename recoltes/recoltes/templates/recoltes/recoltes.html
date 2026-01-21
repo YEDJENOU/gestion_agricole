@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Récoltes - AgriTech-Bénin</title>
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AgriTech-Bénin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/producteurs/">Producteurs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Récoltes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/stock/">Stockage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Liste des Récoltes</h2>
+
+        <!-- Bouton Ajouter -->
+        <div class="mb-3">
+            <a href="{% url 'ajouter_recolte' %}" class="btn btn-primary">Ajouter une récolte</a>
+        </div>
+
+        <!-- Tableau des récoltes -->
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Producteur</th>
+                    <th>Culture</th>
+                    <th>Quantité (tonnes)</th>
+                    <th>Date de récolte</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recolte in recoltes %}
+                <tr>
+                    <td>{{ recolte.producteur.nom }}</td>
+                    <td>{{ recolte.culture.nom }}</td>
+                    <td>{{ recolte.quantite }}</td>
+                    <td>{{ recolte.date }}</td>
+                    <td>
+                        <a href="{% url 'modifier_recolte' recolte.id %}" class="btn btn-sm btn-warning">Modifier</a>
+                        <a href="{% url 'supprimer_recolte' recolte.id %}" class="btn btn-sm btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">Aucune récolte trouvée</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

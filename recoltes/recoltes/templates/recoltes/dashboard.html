@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech-Bénin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AgriTech-Bénin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Section Producteurs -->
+        <h2>Producteurs</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-success">
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Téléphone</th>
+                        <th>Commune</th>
+                        <th>Arrondissement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--  mettre une boucle Django plus tard -->
+                    <tr>
+                        <td>Exemple</td>
+                        <td>Exemple</td>
+                        <td>exemple@mail.com</td>
+                        <td>12345678</td>
+                        <td>Cotonou</td>
+                        <td>Calavi</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section Récoltes -->
+        <h2>Récoltes</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-success">
+                    <tr>
+                        <th>Producteur</th>
+                        <th>Culture</th>
+                        <th>Quantité (kg)</th>
+                        <th>Date Récolte</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Exemple</td>
+                        <td>Maïs</td>
+                        <td>100</td>
+                        <td>20/01/2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section Stocks -->
+        <h2>Stocks</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-success">
+                    <tr>
+                        <th>Culture</th>
+                        <th>Entrepôt</th>
+                        <th>Quantité actuelle (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maïs</td>
+                        <td>Entrepôt 1</td>
+                        <td>50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
